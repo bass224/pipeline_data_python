@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "data_pipeline"
+version = "0.1.0"
+description = "Un projet data pipeline python modulable."
+authors = [
+    { name="DIALLO Abdoul Bassity", email="abdoulbassitydiallo@gmail.com" }
+]
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+
+# Dépendances principales
+dependencies = [
+    "pandas",
+    "pyarrow",
+    "python-dotenv",
+]
+
+# Dépendances de développement (non installées en prod)
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
+
+# Où se trouve ton code
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# Configuration pytest (optionnelle ici)
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v"

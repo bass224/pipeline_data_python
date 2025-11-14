@@ -1,0 +1,59 @@
+
+
+# ==========================
+# ENVIRONNEMENTS / SECRETS
+# ==========================
+env/
+*.env              # Fichiers d'environnement (ex: dev.env, prod.env)
+.env               # Si tu as un seul fichier global .env
+*.key              # Clés d'accès API
+*.pem              # Clés privées SSL
+
+# ==========================
+# DONNÉES
+# ==========================
+data/              # Dossier de données (raw, interim, processed)
+!data/.gitkeep     # On garde les dossiers vides grâce au .gitkeep
+
+# ==========================
+# NOTEBOOKS
+# ==========================
+**/.ipynb_checkpoints/  # Dossiers auto-générés par Jupyter
+*.ipynb_save            # Sauvegardes temporaires de notebooks
+
+# ==========================
+# PYTHON
+# ==========================
+__pycache__/        # Cache compilé des modules
+*.py[cod]           # Fichiers Python compilés
+*.so                # Fichiers compilés de librairies
+.venv/              # Environnement virtuel local
+venv/
+myenv/
+.env/               # Parfois utilisé pour les env virtuels
+pip-wheel-metadata/
+*.egg-info/
+*.egg
+
+# ==========================
+# LOGS & TEMP
+# ==========================
+*.log
+*.tmp
+tmp/
+logs/
+
+# ==========================
+# IDEs & ÉDITEURS
+# ==========================
+.vscode/
+.idea/
+.DS_Store           # macOS
+Thumbs.db           # Windows
+
+# ==========================
+# DVC (si tu l’utilises plus tard)
+# ==========================
+.dvc/
+*.dvc
+.cache/
