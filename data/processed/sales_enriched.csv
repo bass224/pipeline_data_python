@@ -1,0 +1,4 @@
+order_id,user_id,amount,id,name,age,amount_after_tax,is_big_purchase,age_group
+100,1,59.9,1,Alice,32.0,71.88,True,Adult
+101,2,89.0,2,Bob,41.0,106.8,True,Mature
+102,1,42.0,1,Alice,32.0,50.4,False,Adult
