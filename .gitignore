@@ -57,3 +57,7 @@ Thumbs.db           # Windows
 .dvc/
 *.dvc
 .cache/
+
+#dossier sandbox 
+
+sandbox/
