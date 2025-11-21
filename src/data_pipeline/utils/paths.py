@@ -9,7 +9,7 @@ from pathlib import Path
 import os 
 
 #Récupérer la racine du projet 
-ROOT_PROJECT = Path(__file__).resolve().parents[2]
+ROOT_PROJECT = Path(__file__).resolve().parents[3]
 
 
 #permettre à l'utilisateur d'écraser la racine du projet via une variable d'environnement 

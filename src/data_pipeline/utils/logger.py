@@ -32,13 +32,13 @@ class JsonFormatter(logging.Formatter):
 class ContextAdapter(logging.LoggerAdapter):
     """Ajoute des infos de contexte (env, run_id, component) à chaque log."""
     def process(self, msg, kwargs):
-        extra = self.extra.copy()
-        prefix = (
-            f"[env={extra.get('env')}] "
-            f"[run={extra.get('run_id')}] "
-            f"[component={extra.get('component')}]"
-        )
-        return f"{prefix} {msg}", kwargs
+    # On n’altère plus le message !
+        if "extra" in kwargs:
+            kwargs["extra"].update(self.extra)
+        else:
+            kwargs["extra"] = self.extra
+        return msg, kwargs
+
 
 
 def get_logger(name="data_pipeline", env=None, run_id=None, component=None, json_format=False):
