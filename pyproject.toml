@@ -32,5 +32,5 @@ where = ["src"]
 
 # Configuration pytest (optionnelle ici)
 [tool.pytest.ini_options]
+pythonpath = ["src"]
 testpaths = ["tests"]
-addopts = "-v"

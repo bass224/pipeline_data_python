@@ -1,4 +1,4 @@
 [
-    {"id": 1, "name": "Alice", "age": 32},
-    {"id": 2, "name": "Bob", "age": 41}
+    {"user_id": 1, "name": "Alice", "age": 32},
+    {"user_id": 2, "name": "Bob", "age": 41}
 ]

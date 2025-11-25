@@ -40,8 +40,12 @@ def clean_users(df: pd.DataFrame) -> pd.DataFrame:
     # normalisation colonnes
     df.columns = [c.lower().strip() for c in df.columns]
 
+    if 'user_id' not in df.columns and 'id' in df.columns:
+        df = df.rename(columns={'id': 'user_id'})
+    
+    
     # typage
-    df["id"] = df["id"].astype(int)
+    df["user_id"] = df["user_id"].astype(int)
     df["age"] = df["age"].astype(float)
 
     # règles de nettoyage
@@ -62,8 +66,12 @@ def clean_sales(df: pd.DataFrame) -> pd.DataFrame:
     # normalisation colonnes
     df.columns = [c.lower().strip() for c in df.columns]
 
+     # Renommage si nécessaire
+    if 'sale_id' not in df.columns and 'order_id' in df.columns:
+        df = df.rename(columns={'order_id': 'sale_id'})
+        
     # typage
-    df["order_id"] = df["order_id"].astype(int)
+    df["sale_id"] = df["sale_id"].astype(int)
     df["user_id"] = df["user_id"].astype(int)
     df["amount"] = df["amount"].astype(float)
 
@@ -83,7 +91,7 @@ def enrich_sales_with_users(users_df: pd.DataFrame, sales_df: pd.DataFrame) -> p
 
     logger.info("Merging users and sales")
 
-    df = sales_df.merge(users_df, left_on="user_id", right_on="id", how="left")
+    df = sales_df.merge(users_df, on="user_id", how="left")
 
     # Feature engineering
     df["amount_after_tax"] = df["amount"] * 1.20          # TVA 20%
